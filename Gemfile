@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 source "https://rubygems.org"
 
-gem "jekyll"
-gem "jekyll-seo-tag"
+gem "jekyll", "~> 4.4.1"
+gem "base64"
+gem "logger"
+gem "bigdecimal"
+gem "webrick"
+gem "rexml"
+gem "csv"
+gem "jekyll-seo-tag", "~> 2.8.0"

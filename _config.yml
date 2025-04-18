@@ -6,12 +6,12 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: jekyll-theme-hackcss
+title: Laerdon Kim
 description: > # this means to ignore newlines until "baseurl:"
-  A minimalistic theme for Jekyll, based on hack.css
-repository: https://github.com/wemake-services/jekyll-theme-hackcss
-baseurl: /jekyll-theme-hackcss  # the subpath of your site, e.g. /blog
-url: https://wemake-services.github.io  # the base hostname & protocol for your site
+  Personal website and portfolio of Laerdon Kim
+repository: laerdon/laerdon.github.io
+baseurl: "" # the subpath of your site, e.g. /blog
+url: https://laerdon.github.io # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
@@ -21,11 +21,11 @@ sass:
   style: compressed
 
 # Theme settings
-theme_mode: markdown  # choices are: 'dark', 'standard', 'markdown'
+theme_mode: markdown # choices are: 'dark', 'standard', 'markdown'
 
 # Customizations
-your_name: wemake.services
-email: mail@sobolevn.me
+your_name: Laerdon Kim
+email: lyk25@cornell.edu
 
 navigation:
   - text: Home
@@ -53,12 +53,12 @@ projects:
 
 social:
   - service: github
-    username: sobolevn
-    link: https://github.com/sobolevn
+    username: laerdon
+    link: https://github.com/laerdon
   - service: twitter
-    username: sobolevn
-    link: https://twitter.com/sobolevn
+    username: laerdonkim
+    link: https://twitter.com/laerdonkim
 
 # Plugins
-gems:
+plugins:
   - jekyll-seo-tag
