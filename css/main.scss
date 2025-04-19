@@ -3,18 +3,16 @@
 ---
 @charset "utf-8";
 
-
+// Import variables first
+@import "variables";
 
 // Our variables
 $spacing-unit:     10px;
 $image-size:       50px;
 $icon-size:        15px;
 
-
 // Sizes
 $on-palm:          768px;
-
-
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -28,7 +26,6 @@ $on-palm:          768px;
         @content;
     }
 }
-
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import

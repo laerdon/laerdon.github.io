@@ -2,6 +2,29 @@
 
 .t-hackcss {  // Main prefix to avoid collisions
 
+  // Intro section styles
+  &-intro-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  &-intro-content {
+    flex: 1;
+  }
+
+  &-profile-image {
+    flex-shrink: 0;
+    text-align: center;
+  }
+  
+  &-profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
   // navigation.html
 
   &-navigation {

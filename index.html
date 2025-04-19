@@ -2,10 +2,10 @@
 layout: default
 ---
 
-<div>
+<div class="t-hackcss">
 
-  <section class="intro-section">
-    <div class="intro-content">
+  <section class="t-hackcss-intro-section">
+    <div class="t-hackcss-intro-content">
       <h1>Laerdon Kim - Undergraduate Researcher at Cornell University</h1>
 
       <p>
@@ -14,8 +14,8 @@ layout: default
         My research advisors are <a href="https://www.cs.cornell.edu/~cristian/" target="_blank">Professor Cristian Danescu-Niculescu-Mizil</a> and <a href="https://www.cs.cornell.edu/home/llee/" target="_blank">Professor Lillian Lee</a>.
       </p>
     </div>
-    <div class="profile-image">
-      <img src="{{ '/assets/images/picture.png' | prepend: site.baseurl }}" alt="Laerdon Kim" class="profile-img">
+    <div class="t-hackcss-profile-image">
+      <img src="{{ '/assets/images/picture.png' | prepend: site.baseurl }}" alt="Laerdon Kim" class="t-hackcss-profile-img">
     </div>
   </section>
 
@@ -40,7 +40,6 @@ layout: default
         <li>I like to grill, and bake cupcakes, pies, and custard-related desserts. I once made an <a href="{{ '/assets/images/pie.JPG' | prepend: site.baseurl }}" target="_blank">algae-colored pumpkin pie</a>.</li>
         <li>In summer 2024, I started a blog on <a href="https://laerdon.substack.com/" target="_blank">Substack</a>.</li>
       </ul>
-
     </p>
   </section>
 
@@ -51,27 +50,3 @@ layout: default
   </section>
 
 </div>
-
-<style>
-    .intro-section {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .intro-content {
-      flex: 1;
-    }
-
-    .profile-image {
-      flex-shrink: 0;
-      text-align: center;
-    }
-    
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-    }
-</style>
