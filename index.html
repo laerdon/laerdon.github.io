@@ -4,63 +4,74 @@ layout: default
 
 <div>
 
+  <section class="intro-section">
+    <div class="intro-content">
+      <h1>Laerdon Kim - Undergraduate Researcher at Cornell University</h1>
+
+      <p>
+        Hi! I'm Laerdon Kim, a freshman at Cornell University studying Computer Science and Mathematics.
+        I'm interested in <b>NLP for long-term social/scientific collaboration with AI agents</b>, <b>investigating language model embeddings</b>, and <b>neuro-symbolic ML for common-sense reasoning</b>.
+        My research advisors are <a href="https://www.cs.cornell.edu/~cristian/" target="_blank">Professor Cristian Danescu-Niculescu-Mizil</a> and <a href="https://www.cs.cornell.edu/home/llee/" target="_blank">Professor Lillian Lee</a>.
+      </p>
+    </div>
+    <div class="profile-image">
+      <img src="{{ '/assets/images/picture.png' | prepend: site.baseurl }}" alt="Laerdon Kim" class="profile-img">
+    </div>
+  </section>
+
+  <br>
+
   <section>
-    <h1>Jekyll theme based on hack.css</h1>
+    <h2>what i'm up to</h2>
 
     <p>
-      Mobile-ready, modern, stylish, simple.
+      This summer, I'll be working as a research intern funded by the <b>Bowers Undergraduate Research Experience (BURE)</b> program at Cornell.
+      I'll be working further with Prof. Cristian Danescu-Niculescu-Mizil, developing forecasting models to determine when and how tension builds in online conversation.
     </p>
   </section>
 
   <section>
-    <h2>What is Jekyll?</h2>
+    <h2>for fun</h2>
 
     <p>
-      <code>Jekyll</code> is a simple, blog-aware, static site generator
-      perfect for personal, project,
-      or organization sites. Think of it like a
-      file-based CMS, without all the complexity.
-      <code>Jekyll</code> takes your content, renders Markdown
-      and Liquid templates, and spits out a
-      complete, static website ready to be served by Apache,
-      Nginx or another web server.
-      <code>Jekyll</code> is the engine behind GitHub Pages,
-      which you can use to host sites right
-      from your GitHub repositories.
-    </p>
-  </section>
-
-  <section>
-    <h2>What is hack.css?</h2>
-
-    <p>
-      <code>hack.css</code> is a dead simple css framework. Chech out
-      <a href="https://hackcss.egoist.moe/">hackcss.egoist.moe</a> to know more.
-    </p>
-  </section>
-
-  <section>
-    <h2>Getting started</h2>
-
-    <p>
-      <ol>
-        <li>Make sure you have <code>Jekyll</code> up and running</li>
-        <li>Clone
-          <a href="https://github.com/wemake-services/jekyll-theme-hackcss">this repository</a>
-        </li>
-        <li>Customize it</li>
-        <li>Push to <a href="https://pages.github.com/">gh-pages</a></li>
-      </ol>
+      <ul>
+        <li>I <a href="https://soundcloud.com/yskinprogress/" target="_blank">produce music</a> in Ableton, occasionally contributing samples of my cello.</li>
+        <li>I sketch. I have a lot of MUJI pens, too.</li>
+        <li>I like to grill, and bake cupcakes, pies, and custard-related desserts. I once made an <a href="{{ '/assets/images/pie.JPG' | prepend: site.baseurl }}" target="_blank">algae-colored pumpkin pie</a>.</li>
+        <li>In summer 2024, I started a blog on <a href="https://laerdon.substack.com/" target="_blank">Substack</a>.</li>
+      </ul>
 
     </p>
   </section>
 
   <section>
-    <h2>Subscribe</h2>
-
-    <p>
-      subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
-    </p>
+    <i>
+      *** this website is adapted from the Hack.CSS Jekyll theme. ***
+    </i>
   </section>
 
 </div>
+
+<style>
+    .intro-section {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .intro-content {
+      flex: 1;
+    }
+
+    .profile-image {
+      flex-shrink: 0;
+      text-align: center;
+    }
+    
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+</style>
