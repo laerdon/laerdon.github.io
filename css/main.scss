@@ -1,18 +1,15 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
+
+// Import all modules first
+@use "variables" as *;
+@use "mixins" as *;
+@use "styles";
+@use "highlight";
+@use "animations";
+
 @charset "utf-8";
-
-// Import variables first
-@import "variables";
-
-// Our variables
-$spacing-unit:     10px;
-$image-size:       50px;
-$icon-size:        15px;
-
-// Sizes
-$on-palm:          768px;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -26,10 +23,3 @@ $on-palm:          768px;
         @content;
     }
 }
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "styles",
-        "highlight",
-        "animations"
-;

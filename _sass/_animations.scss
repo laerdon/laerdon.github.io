@@ -1,13 +1,16 @@
-.t-hackcss {
-  @keyframes spin {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
-  }
+@use "variables" as *;
+@use "mixins" as *;
 
+@keyframes t-hackcss-spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.t-hackcss {
   &-spinning-text-container {
     position: relative;
     width: 100px;
@@ -19,6 +22,6 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    animation: spin 15s linear infinite;
+    animation: t-hackcss-spin 15s linear infinite;
   }
 } 

@@ -1,5 +1,7 @@
-// This file contains custom (non hack.css) styles
+@use "variables" as *;
+@use "mixins" as *;
 
+// This file contains custom (non hack.css) styles
 .t-hackcss {  // Main prefix to avoid collisions
 
   // Intro section styles
@@ -26,7 +28,6 @@
   }
 
   // navigation.html
-
   &-navigation {
     padding-right: $spacing-unit;
   }
@@ -36,7 +37,6 @@
   }
 
   // footer.html
-
   @at-root body &-footer {
     padding-bottom: $spacing-unit;
   }
@@ -67,7 +67,6 @@
   }
 
   // examples.html
-
   &-media {
     margin-bottom: 1.25rem;
   }

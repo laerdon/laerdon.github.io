@@ -10,9 +10,6 @@ title: Laerdon Kim
 description: > # this means to ignore newlines until "baseurl:"
   a personal website made by Laerdon Kim
 repository: laerdon/laerdon.github.io
-baseurl: "" # the subpath of your site, e.g. /blog
-url: https://laerdon.github.io # the base hostname & protocol for your site
-
 # Build settings
 markdown: kramdown
 
