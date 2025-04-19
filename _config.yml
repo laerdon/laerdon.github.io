@@ -29,11 +29,11 @@ email: lyk25@cornell.edu
 
 navigation:
   - text: home
-    url: /
+    url: "/"
   - text: publications
-    url: /publications
+    url: "/publications"
   - text: CV
-    url: /assets/cv.pdf
+    url: "/assets/cv.pdf"
     target: _blank
 
 projects:
