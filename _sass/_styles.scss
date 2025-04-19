@@ -7,9 +7,15 @@
   // Intro section styles
   &-intro-section {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     gap: 2rem;
     margin: 2rem 0;
+    
+    @include media-query($on-palm) {
+      flex-direction: column;
+    }
   }
 
   &-intro-content {
@@ -19,8 +25,8 @@
   &-profile-image {
     flex-shrink: 0;
     text-align: center;
-    max-width: 250px;
-    max-height: 250px;
+    width: 200px;
+    height: 200px;
     overflow: hidden;
   }
   
