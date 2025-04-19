@@ -81,8 +81,8 @@
 
   &-media-image {
     display: block;
-    max-width: 100% !important;
-    height: auto !important;
+    max-width: 100%;
+    height: auto;
   }
 
   &-cards {
@@ -103,8 +103,8 @@
 
   &-cards-image {
     display: block;
-    max-width: 50% !important;
-    height: auto !important;
+    max-width: 50%;
+    height: auto;
     margin: 0 auto;
   }
 
@@ -115,9 +115,8 @@
 
 // Additional global styles for images
 img {
-  max-width: 100% !important;
-  height: auto !important;
-  display: inline-block !important;
+  max-width: 100%;
+  height: auto;
 }
 
 // Specific styles for content images
@@ -125,7 +124,6 @@ article img,
 .page-content img,
 p img, 
 li img {
-  max-width: 100% !important;
-  height: auto !important;
-  display: inline-block !important;
+  max-width: 100%;
+  height: auto;
 }
