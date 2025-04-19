@@ -60,7 +60,7 @@ social:
     username: github
     link: https://github.com/laerdon
   - service: twitter
-    username: twitter
+    username: x
     link: https://twitter.com/laerdonkim
 
 # Plugins
