@@ -1,0 +1,30 @@
+/* Custom CSS to enforce image styles */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: inline-block !important;
+}
+
+.t-hackcss-profile-img {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover !important;
+  border-radius: 5px !important;
+}
+
+.t-hackcss-profile-image {
+  flex-shrink: 0 !important;
+  text-align: center !important;
+  max-width: 250px !important;
+  max-height: 250px !important;
+  overflow: hidden !important;
+}
+
+/* Make sure images in content are properly sized */
+article img, 
+.page-content img,
+p img, 
+li img {
+  max-width: 100% !important;
+  height: auto !important;
+} 
