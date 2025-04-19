@@ -3,6 +3,8 @@ layout: default
 permalink: publications
 ---
 
+<div class="t-hackcss" style="margin: 2rem 0;">
+
 # publications
 
 ## workshops, presentations
@@ -21,7 +23,9 @@ permalink: publications
 
 <div class="publication">
   <p>
-    Laerdon Kim. “Altruism and Our Kinship Crisis.” TEDx Presentation at Phillips Academy,
+    Laerdon Kim. "Altruism and Our Kinship Crisis." TEDx Presentation at Phillips Academy,
     Andover, MA, April 2024.
   </p>
+</div>
+
 </div>
