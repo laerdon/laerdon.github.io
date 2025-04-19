@@ -3,7 +3,7 @@ layout: default
 permalink: publications
 ---
 
-<div class="t-hackcss" style="margin: 2rem 0;">
+<div class="t-hackcss" style="margin: 2rem 0;"></div>
 
 # publications
 
