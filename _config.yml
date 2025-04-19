@@ -21,6 +21,7 @@ include:
 # Sass settings
 sass:
   style: compressed
+  sass_dir: _sass
 
 # Theme settings
 theme_mode: markdown # choices are: 'dark', 'standard', 'markdown'
