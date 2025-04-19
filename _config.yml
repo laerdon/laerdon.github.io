@@ -57,10 +57,10 @@ projects:
 
 social:
   - service: github
-    username: laerdon
+    username: github
     link: https://github.com/laerdon
   - service: twitter
-    username: laerdonkim
+    username: twitter
     link: https://twitter.com/laerdonkim
 
 # Plugins
