@@ -27,5 +27,3 @@ permalink: publications
     Andover, MA, April 2024.
   </p>
 </div>
-
-</div>
