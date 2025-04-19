@@ -10,7 +10,7 @@ title: Laerdon Kim
 description: > # this means to ignore newlines until "baseurl:"
   a personal website made by Laerdon Kim
 repository: https://github.com/laerdon/laerdon.github.io
-baseurl: "laerdon.github.io"
+baseurl: ""
 url: "https://laerdon.github.io"
 # Build settings
 markdown: kramdown
