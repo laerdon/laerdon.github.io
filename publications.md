@@ -7,8 +7,6 @@ permalink: publications
 
 # publications
 
-## workshops, presentations
-
 <div class="publication">
   <p>
     Khonzoda Umarova, Lillian Lee, Laerdon Kim. <span style="font-style: italic;">Current semantic-change quantification methods struggle with semantic change discovery in the wild</span>. Under Review 2025.
