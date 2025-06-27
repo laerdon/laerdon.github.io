@@ -9,12 +9,6 @@ permalink: publications
 
 <div class="publication">
   <p>
-    Khonzoda Umarova, Lillian Lee, Laerdon Kim. <span style="font-style: italic;">Current semantic-change quantification methods struggle with semantic change discovery in the wild</span>. Under Review 2025.
-  </p>
-</div>
-
-<div class="publication">
-  <p>
     Laerdon Kim. <span style="font-style: italic;">A Baseline for Self-state Identification and Classification in Mental Health Data: CLPsych 2025 Task</span>. Accepted at NAACL 10th Workshop on Computational Linguistics and Clinical Psychology. P.I. Cristian Danescu-Niculescu-Mizil. <a href="http://arxiv.org/abs/2504.14066" target="_blank">arxiv</a>
   </p>
 </div>
