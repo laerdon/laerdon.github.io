@@ -7,8 +7,7 @@
 
 # Site settings
 title: Laerdon Kim
-description: > # this means to ignore newlines until "baseurl:"
-  a personal website made by Laerdon Kim
+description:
 repository: https://github.com/laerdon/laerdon.github.io
 baseurl: ""
 url: "https://laerdon.github.io"
