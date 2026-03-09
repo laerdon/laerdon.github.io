@@ -1,0 +1,35 @@
+---
+layout: default
+title: blog
+permalink: /blog/
+---
+
+<div class="t-hackcss">
+
+  <section>
+    <h1>blog</h1>
+    <p>notes, drafts, and longer-form thoughts.</p>
+  </section>
+
+  <section>
+    <ul>
+      {% for post in site.posts %}
+        <li style="margin-bottom: 1rem;">
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title }}
+          </a>
+          <span style="display: block; font-size: 0.85rem; color: #777;">
+            {{ post.date | date: "%B %-d, %Y" }}
+          </span>
+          {% if post.short_description %}
+            <span style="display: block; font-size: 0.9rem;">
+              {{ post.short_description }}
+            </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+</div>
+
