@@ -9,6 +9,12 @@ permalink: publications
 
 <div class="publication">
   <p>
+    Under review, 2026.
+  </p>
+</div>
+
+<div class="publication">
+  <p>
     Khonzoda Umarova, Lillian Lee, Laerdon Kim. <span style="font-style: italic;">Current semantic-change quantification methods struggle with semantic change discovery in the wild</span>. Accepted at EMNLP 2025 Main Conference. 2025.
   </p>
 </div>
