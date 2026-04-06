@@ -9,7 +9,7 @@ permalink: publications
 
 <div class="publication">
   <p>
-    Under review, 2026.
+      Laerdon Kim, Vivian Nguyen, Cristian Danescu-Niculescu-Mizil. <span style="font-style: italic;">Wait! There’s a Way Out: A Decision Mechanism for Forecasting Conversational Derailment</span>. Accepted at ACL 2026 Main Conference. <span style="color: red;"> (Oral. Top 15% of accepted papers) </span> 2026.
   </p>
 </div>
 
