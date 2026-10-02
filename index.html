@@ -226,9 +226,9 @@ function house(x, z, ry, wall, roof, s = 1) {
 const houses = [
   house(-2.4, -6.1, .25, 0xf1e6d2, 0xb5533c),
   house(2.1, -6.4, -.3, 0xdfe7ee, 0x3f5f8a, .9),
+  house(-4.6, -7.4, .5, 0xf3d9a8, 0x6b4a3a, .85),
+  house(4.4, -8.2, -.6, 0xeee7df, 0x9a3f3f, .8),
 ];
-house(-4.6, -7.4, .5, 0xf3d9a8, 0x6b4a3a, .85);
-house(4.4, -8.2, -.6, 0xeee7df, 0x9a3f3f, .8);
 
 // ---------- trees ----------
 const greens = [0x4f7f3f, 0x5e8f45, 0x3f6d3a, 0x6f9a4a].map(c => lam(c));
@@ -275,8 +275,13 @@ rod.rotation.x = 1.0;
 const lineGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]);
 scene.add(new THREE.Line(lineGeo, new THREE.LineBasicMaterial({ color: 0x222222, transparent: true, opacity: .5 })));
 
-// villagers strolling along the shore path
-const villagers = [0xc0533a, 0x6a7f3a, 0xe0b64a].map((c, i) => ({ p: person(c), phase: i * 2.1, speed: .09 + i * .025, span: 4 + i, z: -4.75 - i * .22 }));
+// villagers strolling along the shore path; each heads home to sleep at night (hours on the sky clock)
+const villagers = [
+  { c: 0xc0533a, home: 0, sleep: 21.5, wake: 6.25 },
+  { c: 0x6a7f3a, home: 1, sleep: 23,   wake: 7.5 },
+  { c: 0xe0b64a, home: 2, sleep: .75,  wake: 8.5 }, // the night owl
+].map((v, i) => ({ ...v, p: person(v.c), gait: i * 2.1, phase: i * 2.1, speed: .09 + i * .025, span: 4 + i, z: -4.75 - i * .22, mode: null }));
+const inBed = (v, h) => v.sleep < v.wake ? h >= v.sleep && h < v.wake : h >= v.sleep || h < v.wake;
 
 // ---------- boats ----------
 function boat({ hull, cabin, sail = false }) {
@@ -350,6 +355,7 @@ for (const b of berths) {
   b.on.start = DOCK - 1.5 - b.on.r.total / WALK;
 }
 const sailer = boat({ hull: 0xf2efe8, sail: true });
+const path = pts => { const lens = pts.slice(1).map((q, i) => q.distanceTo(pts[i])); return { pts, lens, total: lens.reduce((x, y) => x + y), hop: -1 }; };
 
 const bez = (a, c, b, u, out) => out.set(0, 0, 0).addScaledVector(a, (1 - u) ** 2).addScaledVector(c, 2 * u * (1 - u)).addScaledVector(b, u * u);
 const tmp = new THREE.Vector3(), tmp2 = new THREE.Vector3();
@@ -529,23 +535,55 @@ function frame() {
 
   for (const hs of houses) hs.userData.want = 0;
   for (const b of berths) updateBerth(b, a, t);
-  for (const hs of houses) {
-    const u = hs.userData;
-    u.open += (u.want - u.open) * .18;
-    u.hinge.rotation.y = u.open * 1.7;
-  }
 
   // a sailboat drifting across the foreground every so often
   const sx = -16 + (a % 96) / 96 * 44;
   placeBoat(sailer, V(sx, 6.4), V(1, 0), t);
   sailer.userData.sail.rotation.y = Math.sin(t * .4) * .1;
 
+  // stroll → (bedtime) walk home and go inside → asleep → (morning) come out and rejoin the stroll
   for (const v of villagers) {
-    const s = Math.sin(a * v.speed + v.phase), ds = Math.cos(a * v.speed + v.phase);
-    const x = s * v.span * .5, z = v.z;
-    v.p.position.set(x, landH(x, z), z);
-    v.p.rotation.y = ds > 0 ? Math.PI / 2 : -Math.PI / 2;
-    walkPose(v.p, t * 8 + v.phase);
+    const home = houses[v.home].userData, bed = inBed(v, h), half = v.span * .5;
+    if (v.mode === null) v.mode = bed ? 'asleep' : 'stroll';
+    if (v.mode === 'stroll' && bed) {
+      const st = home.step;
+      v.r = path([v.p.position.clone(), V(st.x, v.z).setY(landH(st.x, v.z)), st, home.door, home.inside]);
+      v.mode = 'home'; v.d = 0;
+    } else if (v.mode === 'asleep' && !bed) {
+      const st = home.step, x = Math.min(Math.max(st.x, -half * .95), half * .95);
+      v.r = path([home.inside, home.door, st, V(x, v.z).setY(landH(x, v.z))]);
+      v.mode = 'out'; v.d = 0;
+    }
+    if (v.mode === 'home' || v.mode === 'out') {
+      v.d += (a - (v.lastA ?? a)) * WALK;
+      if (v.d >= v.r.total) {
+        if (v.mode === 'home') v.mode = 'asleep';
+        else {
+          // pick the stroll phase that puts them exactly where they stepped onto the path, heading away from home
+          const x = v.r.pts[3].x, s = Math.asin(x / half), right = x < 0;
+          v.phase = (right ? s : Math.PI - s) - a * v.speed;
+          v.mode = 'stroll';
+        }
+      } else {
+        v.p.rotation.y = alongRoute(v.r, v.d, tmp);
+        v.p.position.copy(tmp);
+        if (tmp.distanceTo(home.door) < .55) home.want = 1;
+      }
+    }
+    v.lastA = a;
+    v.p.visible = v.mode !== 'asleep';
+    if (v.mode === 'stroll') {
+      const s = Math.sin(a * v.speed + v.phase), ds = Math.cos(a * v.speed + v.phase);
+      const x = s * half, z = v.z;
+      v.p.position.set(x, landH(x, z), z);
+      v.p.rotation.y = ds > 0 ? Math.PI / 2 : -Math.PI / 2;
+    }
+    walkPose(v.p, t * 8 + v.gait);
+  }
+  for (const hs of houses) {
+    const u = hs.userData;
+    u.open += (u.want - u.open) * .18;
+    u.hinge.rotation.y = u.open * 1.7;
   }
 
   rod.rotation.z = Math.sin(t * .8) * .05;
