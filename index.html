@@ -1,70 +1,570 @@
----
-layout: default
----
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laerdon Kim</title>
+<meta name="description" content="Laerdon Kim — Cornell undergraduate working on language, human-AI interaction, and representation learning.">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --fg: #111; --muted: #777; --link: #2f5aa8; --bg: #fff; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #e8e6e1; --muted: #8a8780; --link: #8fb0ff; --bg: #141413; } }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 19px/1.6 "EB Garamond", Georgia, serif;
+  }
+  .layout { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; padding: 0 24px 0 40px; }
+  main { flex: 0 1 480px; margin: 64px 0 96px; }
+  p { margin: 0 0 12px; }
+  a { color: var(--link); text-decoration: none; background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1px; transition: background-size .35s cubic-bezier(.2,.8,.2,1); }
+  a:hover { background-size: 100% 1px; }
 
-<div class="t-hackcss">
+  .rows { display: grid; grid-template-columns: 160px 1fr; row-gap: 4px; margin: 36px 0; }
+  .rows dt { font-weight: bold; grid-column: 1; }
+  .rows dd { margin: 0; grid-column: 2; }
+  .rows dt:not(:first-child), .rows dt:not(:first-child) + dd { margin-top: 20px; }
+  .rows dd.paper + dd.paper { margin-top: 8px; }
+  .rows .venue { color: var(--muted); }
 
-  <section class="t-hackcss-intro-section" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; margin: 2rem 0;">
-    <div class="t-hackcss-intro-content" style="flex: 1;">
-      <h1>Laerdon Kim</h1>
+  /* the harbor pane */
+  .harbor {
+    flex: 0 0 280px; position: sticky; top: 24px; margin: 24px 0;
+    height: calc(100vh - 48px); max-height: 760px; min-height: 420px;
+    display: flex; flex-direction: column;
+  }
+  .scene { flex: 1; position: relative; overflow: hidden; border-radius: 3px; background: #9cc6e4; transition: background 1s; }
+  .scene canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .harbor .cap { display: flex; justify-content: space-between; gap: 8px; margin-top: 8px; font-size: 11px; font-style: italic; color: var(--muted); }
+  .harbor .cap button { all: unset; cursor: pointer; }
+  .harbor .cap button:hover { color: var(--fg); }
 
-      <p>
-        I'm a third-year at Cornell University studying computer science.
-        I'm interested in <b>simulating human behavior, representation learning, and proactive + personalized human–AI interaction.</b>
-        My research advisors are <a href="https://www.cs.cornell.edu/~cristian/" target="_blank">Professor Cristian Danescu-Niculescu-Mizil</a> and <a href="https://www.cs.cornell.edu/home/llee/" target="_blank">Professor Lillian Lee</a>.
-      </p>
-    </div>
-    <div class="t-hackcss-profile-image" style="flex-shrink: 0; text-align: center; width: 200px; height: 200px; overflow: hidden;">
-      <img src="{{ '/assets/images/picture.png' | relative_url }}" alt="Laerdon Kim" class="t-hackcss-profile-img" style="width: 200px; height: 200px; object-fit: cover; border-radius: 5px;">
-    </div>
-  </section>
+  .in { opacity: 0; transform: translateY(6px); animation: in .9s cubic-bezier(.2,.8,.2,1) forwards; }
+  @keyframes in { to { opacity: 1; transform: none; } }
 
-  <br>
+  @media (max-width: 860px) {
+    .layout { flex-direction: column; gap: 0; padding: 0 16px; }
+    main { flex: none; margin: 40px 0 32px; }
+    .harbor { position: static; flex: none; width: 100%; height: 440px; min-height: 0; margin: 0 0 48px; }
+  }
+  @media (max-width: 600px) {
+    .rows { grid-template-columns: 1fr; }
+    .rows dt, .rows dd { grid-column: 1; }
+    .rows dt:not(:first-child) + dd { margin-top: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .in { animation: none; opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<div class="layout">
+  <main>
+    <p class="in">I'm an undergraduate at Cornell University working on language, human-AI interaction, and representation learning.</p>
+    <p class="in">I'm advised by the brilliant <a href="https://www.cs.cornell.edu/~cristian/">Cristian Danescu-Niculescu-Mizil</a> and <a href="https://www.cs.cornell.edu/home/llee/">Lillian Lee</a>.</p>
 
-  <section>
-    <h2>research interests</h2>
-    <p>
-        I am curious about, broadly, reimagining interaction paradigms around AI systems, which I hope to investigate in two ways:
-        <ul>
-          <li>
-            I care about proactive applications that help users think, reflect, and act more effectively over time.
-          </li>
-          <li>
-            I want to build models that can reliably understand, simulate, and steer conversational dynamics. I am inspired by work on social simulation.
-          </li>
-        </ul>
-    </p>
-    <p>
+    <dl class="rows in">
+      <dt>say hello</dt>
+      <dd>lyk25 [at] cornell [dot] edu</dd>
+      <dd><a href="https://twitter.com/laerdonkim">@laerdonkim</a> on Twitter/X</dd>
+      <dd>code on <a href="https://github.com/laerdon">github</a>; I help maintain <a href="https://github.com/CornellNLP/ConvoKit">ConvoKit</a></dd>
+      <dd>writing on <a href="https://laerdon.substack.com/">substack</a>
+      <dd>music on <a href="https://soundcloud.com/yskinprogress/">soundcloud</a></dd>
+      <dd>my <a href="/assets/cv.pdf">cv</a></dd>
 
-    </p>
-  </section>
+      <dt>papers</dt>
+      <dd class="paper"><a href="https://arxiv.org/abs/2605.29243">Wait! There's a Way Out: A Decision Mechanism for Forecasting Conversational Derailment</a>. <span class="venue">ACL 2026, top 2.8% of submissions</span></dd>
+      <dd class="paper"><a href="https://aclanthology.org/2025.emnlp-main.1791/">Current Semantic-change Quantification Methods Struggle with Discovery in the Wild</a>. <span class="venue">EMNLP 2025</span></dd>
+      <dd class="paper"><a href="http://arxiv.org/abs/2504.14066">A Baseline for Self-state Identification and Classification in Mental Health Data</a>. <span class="venue">CLPsych @ NAACL 2025</span></dd>
 
-  <section>
-    <h2>new!</h2>
+    </dl>
+  </main>
 
-    <p>
-      <b>I recently authored a paper on conversational forecasting to appear at ACL 2026!</b>
-    </p>
-  </section>
-
-  <section>
-    <h2>about me</h2>
-
-    <p>
-      <ul>
-        <li>I am a maintainer of <a href="https://github.com/CornellNLP/ConvoKit" target="_blank">ConvoKit</a>, a toolkit for analyzing conversational data.</li>
-        <li>I <a href="https://soundcloud.com/yskinprogress/" target="_blank">produce music</a> in Ableton, occasionally contributing samples of my cello.</li>
-        <li>I sketch. I have a lot of MUJI pens, too.</li>
-        <li>I like to grill, and bake cupcakes, pies, and custard-related desserts. I once made an <a href="{{ '/assets/images/pie.JPG' | relative_url }}" target="_blank">algae-colored pumpkin pie</a>.</li>
-        <li>In summer 2024, I started a blog on <a href="https://laerdon.substack.com/" target="_blank">Substack</a>.</li>
-      </ul>
-    </p>
-  </section>
-
-  <section>
-    <i>
-      *** this website is adapted from the Hack.CSS Jekyll theme. ***
-    </i>
-  </section>
-
+  <aside class="harbor in" aria-label="A small animated harbor scene that follows your local time of day">
+    <div class="scene" id="scene"></div>
+    <div class="cap"><span id="when">the harbor</span><button id="lapse" title="Play a whole day in 30 seconds">time-lapse ↻</button></div>
+  </aside>
 </div>
+
+<script>
+document.querySelectorAll('.in').forEach((el, i) => el.style.animationDelay = i * .12 + 's');
+</script>
+
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }</script>
+<script type="module">
+import * as THREE from 'three';
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const host = document.getElementById('scene');
+
+// ---------- renderer / camera ----------
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+host.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0xcfe6f5, 26, 60);
+const camera = new THREE.PerspectiveCamera(34, 1, .1, 200);
+const camBase = new THREE.Vector3(2.4, 6.2, 15.5);
+const camLook = new THREE.Vector3(0, 2.1, -1.2);
+
+function resize() {
+  const w = host.clientWidth, h = host.clientHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h; camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(host);
+
+// ---------- helpers ----------
+let seed = 7;
+const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const lam = (c, extra = {}) => new THREE.MeshLambertMaterial({ color: c, flatShading: true, ...extra });
+function mesh(geo, mat, x = 0, y = 0, z = 0, parent = scene) {
+  const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z);
+  m.castShadow = m.receiveShadow = true; parent.add(m); return m;
+}
+const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+
+// ---------- lights ----------
+const hemi = new THREE.HemisphereLight(0xffffff, 0x445533, 1);
+scene.add(hemi);
+const sunLight = new THREE.DirectionalLight(0xffffff, 2.5);
+sunLight.castShadow = true;
+sunLight.shadow.mapSize.set(1024, 1024);
+Object.assign(sunLight.shadow.camera, { left: -12, right: 12, top: 12, bottom: -12, near: 1, far: 60 });
+sunLight.shadow.bias = -.002;
+scene.add(sunLight, sunLight.target);
+const lampLight = new THREE.PointLight(0xffc27a, 0, 7, 1.6);
+lampLight.position.set(-.5, 1.1, 3.6);
+scene.add(lampLight);
+
+// ---------- sky bodies ----------
+const sunDisc = new THREE.Mesh(new THREE.CircleGeometry(1.05, 24), new THREE.MeshBasicMaterial({ color: 0xfff1c9, fog: false }));
+const moonDisc = new THREE.Mesh(new THREE.CircleGeometry(.55, 20), new THREE.MeshBasicMaterial({ color: 0xeef0ff, fog: false }));
+scene.add(sunDisc, moonDisc);
+const starGeo = new THREE.BufferGeometry();
+const sp = [];
+for (let i = 0; i < 260; i++) sp.push((rand() - .5) * 70, 2 + rand() * 30, -45 - rand() * 5);
+starGeo.setAttribute('position', new THREE.Float32BufferAttribute(sp, 3));
+const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 1.6, sizeAttenuation: false, transparent: true, opacity: 0, fog: false });
+scene.add(new THREE.Points(starGeo, starMat));
+
+// ---------- water ----------
+const waterGeo = new THREE.PlaneGeometry(60, 44, 48, 36).rotateX(-Math.PI / 2).translate(0, 0, 0);
+const waterBase = waterGeo.attributes.position.array.slice();
+const waterMat = new THREE.MeshPhongMaterial({ color: 0x3f8fb8, flatShading: true, shininess: 70, specular: 0x557788 });
+const water = new THREE.Mesh(waterGeo, waterMat);
+water.receiveShadow = true;
+scene.add(water);
+const waveH = (x, z, t) => Math.sin(x * .9 + t * 1.3) * .05 + Math.cos(z * 1.2 + t * .9) * .05 + Math.sin((x + z) * .5 + t * .7) * .04;
+
+// ---------- land ----------
+function landH(x, z) {
+  const s = -3.4 - z;
+  let h = Math.min(.5, s * .35) - .25;
+  h += smooth(-8, -15, z) * (1.3 + Math.sin(x * .55) * .9 + Math.cos(x * .33 + 2) * .8) * 1.5;
+  return h;
+}
+const landGeo = new THREE.PlaneGeometry(60, 20, 60, 20).rotateX(-Math.PI / 2).translate(0, 0, -11.5);
+{
+  const p = landGeo.attributes.position, cols = [];
+  const sand = new THREE.Color(0xdcc89c), g1 = new THREE.Color(0x86a95a), g2 = new THREE.Color(0x5f8c48), hill = new THREE.Color(0x6e8f57), c = new THREE.Color();
+  for (let i = 0; i < p.count; i++) {
+    const x = p.getX(i), z = p.getZ(i);
+    const y = landH(x, z) + (rand() - .5) * .12;
+    p.setY(i, y);
+    if (y < .12) c.copy(sand); else if (y > 1.6) c.copy(hill).lerp(g2, rand() * .4); else c.copy(g1).lerp(g2, rand());
+    cols.push(c.r, c.g, c.b);
+  }
+  landGeo.setAttribute('color', new THREE.Float32BufferAttribute(cols, 3));
+}
+const land = new THREE.Mesh(landGeo, new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true }));
+land.receiveShadow = true;
+scene.add(land);
+
+// ---------- dock ----------
+const DECK = .34, DOCK_Z0 = -4.4, DOCK_Z1 = 4;
+const wood = [0x8a6747, 0x7a5a3d, 0x94704f].map(c => lam(c));
+for (let z = DOCK_Z0; z <= DOCK_Z1; z += .26) {
+  const p = mesh(new THREE.BoxGeometry(1.05, .06, .22), wood[(rand() * 3) | 0], (rand() - .5) * .04, DECK + (rand() - .5) * .02, z);
+  p.rotation.y = (rand() - .5) * .04;
+}
+for (let z = DOCK_Z0 + .6; z <= DOCK_Z1 + .01; z += 1.1)
+  for (const x of [-.5, .5]) mesh(new THREE.CylinderGeometry(.05, .05, 1.1, 5), wood[1], x, DECK - .5, z);
+const bulbMat = new THREE.MeshBasicMaterial({ color: 0x555044 });
+for (const z of [-.6, 3.6]) {
+  mesh(new THREE.CylinderGeometry(.025, .03, .75, 5), lam(0x333333), -.5, DECK + .38, z);
+  mesh(new THREE.IcosahedronGeometry(.07, 0), bulbMat, -.5, DECK + .78, z).castShadow = false;
+}
+
+// ---------- houses ----------
+const windowMat = new THREE.MeshBasicMaterial({ color: 0x3b3b3b });
+function house(x, z, ry, wall, roof, s = 1) {
+  const g = new THREE.Group(); g.position.set(x, landH(x, z), z); g.rotation.y = ry; g.scale.setScalar(s); scene.add(g);
+  mesh(new THREE.BoxGeometry(1, .8, .9), lam(wall), 0, .4, 0, g);
+  const r = mesh(new THREE.ConeGeometry(.82, .55, 4), lam(roof), 0, 1.07, 0, g); r.rotation.y = Math.PI / 4; r.scale.z = .9;
+  for (const wx of [-.34, .34]) { const w = mesh(new THREE.PlaneGeometry(.17, .2), windowMat, wx, .5, .452, g); w.castShadow = false; }
+  mesh(new THREE.BoxGeometry(.1, .3, .1), lam(0x7a6a5a), .25, 1.15, -.15, g);
+  // door hinged on its left edge; swings inward when someone walks through
+  mesh(new THREE.PlaneGeometry(.24, .54), lam(0x1e1712), 0, .27, .451, g).castShadow = false;
+  const hinge = new THREE.Group(); hinge.position.set(-.12, 0, .455); g.add(hinge);
+  mesh(new THREE.BoxGeometry(.24, .54, .02), lam(0x6b4a30), .12, .27, 0, hinge);
+  g.userData = { hinge, open: 0 };
+  g.updateMatrixWorld(true);
+  const at = (lz) => { const v = g.localToWorld(new THREE.Vector3(0, 0, lz)); v.y = lz > .45 ? landH(v.x, v.z) + .02 : g.position.y; return v; };
+  g.userData.inside = at(.15); g.userData.door = at(.46); g.userData.step = at(.85);
+  return g;
+}
+const houses = [
+  house(-2.4, -6.1, .25, 0xf1e6d2, 0xb5533c),
+  house(2.1, -6.4, -.3, 0xdfe7ee, 0x3f5f8a, .9),
+];
+house(-4.6, -7.4, .5, 0xf3d9a8, 0x6b4a3a, .85);
+house(4.4, -8.2, -.6, 0xeee7df, 0x9a3f3f, .8);
+
+// ---------- trees ----------
+const greens = [0x4f7f3f, 0x5e8f45, 0x3f6d3a, 0x6f9a4a].map(c => lam(c));
+const trunkMat = lam(0x6b4b33);
+function tree(x, z) {
+  const y = landH(x, z), s = .7 + rand() * .6;
+  const g = new THREE.Group(); g.position.set(x, y, z); g.scale.setScalar(s); scene.add(g);
+  mesh(new THREE.CylinderGeometry(.06, .09, .45, 5), trunkMat, 0, .22, 0, g);
+  const leaf = greens[(rand() * greens.length) | 0];
+  if (rand() < .6) {
+    mesh(new THREE.ConeGeometry(.42, .8, 6), leaf, 0, .75, 0, g);
+    mesh(new THREE.ConeGeometry(.3, .6, 6), leaf, 0, 1.15, 0, g);
+  } else {
+    const b = mesh(new THREE.IcosahedronGeometry(.45, 0), leaf, 0, .8, 0, g); b.rotation.set(rand(), rand(), rand());
+  }
+  g.userData.sway = rand() * 6;
+  return g;
+}
+const trees = [];
+for (let i = 0; i < 70; i++) {
+  const x = (rand() - .5) * 26, z = -5.3 - rand() * 12;
+  if (Math.abs(x) < 1.1 && z > -8) continue;
+  if (Math.abs(x) < 3.6 && z > -6.6) continue;
+  if ([[-2.4, -6.1], [2.1, -6.4], [-4.6, -7.4], [4.4, -8.2]].some(([hx, hz]) => Math.hypot(x - hx, z - hz) < 1.1)) continue;
+  trees.push(tree(x, z));
+}
+
+// ---------- people ----------
+const skin = [0xf1c9a5, 0xc68e64, 0x8d5a3b, 0xe0ac7e].map(c => lam(c));
+const pickSkin = () => skin[(rand() * skin.length) | 0];
+function person(shirt, parent = scene, skinMat = pickSkin()) {
+  const g = new THREE.Group(); parent.add(g);
+  mesh(new THREE.CylinderGeometry(.065, .095, .28, 6), lam(shirt), 0, .14, 0, g);
+  mesh(new THREE.IcosahedronGeometry(.07, 0), skinMat, 0, .35, 0, g);
+  return g;
+}
+function walkPose(p, phase, amp = 1) { const b = Math.abs(Math.sin(phase)) * .025 * amp; p.children[0].position.y = .14 + b; p.children[1].position.y = .35 + b; p.rotation.z = Math.sin(phase) * .06 * amp; }
+
+// fisher at the end of the dock
+const fisher = person(0x2f5a7a);
+fisher.position.set(.3, DECK + .02, 3.95); fisher.scale.y = .8;
+const rod = mesh(new THREE.CylinderGeometry(.008, .012, 1.1, 4), lam(0x3a2a1a), .35, DECK + .45, 4.25);
+rod.rotation.x = 1.0;
+const lineGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]);
+scene.add(new THREE.Line(lineGeo, new THREE.LineBasicMaterial({ color: 0x222222, transparent: true, opacity: .5 })));
+
+// villagers strolling along the shore path
+const villagers = [0xc0533a, 0x6a7f3a, 0xe0b64a].map((c, i) => ({ p: person(c), phase: i * 2.1, speed: .09 + i * .025, span: 4 + i, z: -4.75 - i * .22 }));
+
+// ---------- boats ----------
+function boat({ hull, cabin, sail = false }) {
+  const g = new THREE.Group(); scene.add(g);
+  const shape = new THREE.Shape([[-.75, -.3], [.35, -.33], [.85, 0], [.35, .33], [-.75, .3]].map(([x, y]) => new THREE.Vector2(x, y)));
+  const hg = new THREE.ExtrudeGeometry(shape, { depth: .3, bevelEnabled: false }).rotateX(-Math.PI / 2).translate(0, -.12, 0);
+  mesh(hg, lam(hull), 0, 0, 0, g);
+  mesh(new THREE.BoxGeometry(1.5, .04, .62), lam(0xe9e2d0), -.05, .19, 0, g);
+  if (sail) {
+    mesh(new THREE.CylinderGeometry(.02, .025, 1.5, 4), lam(0xd9d0c0), .05, .9, 0, g);
+    const sg = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(.05, .3, 0), new THREE.Vector3(.05, 1.6, 0), new THREE.Vector3(-.65, .3, 0)]);
+    sg.computeVertexNormals();
+    const s = mesh(sg, new THREE.MeshLambertMaterial({ color: 0xfaf6ec, side: THREE.DoubleSide }), 0, 0, 0, g);
+    g.userData.sail = s;
+  } else {
+    mesh(new THREE.BoxGeometry(.5, .3, .44), lam(cabin), -.25, .36, 0, g);
+    mesh(new THREE.BoxGeometry(.6, .05, .52), lam(0x333a44), -.25, .53, 0, g);
+  }
+  const lantern = mesh(new THREE.IcosahedronGeometry(.05, 0), new THREE.MeshBasicMaterial({ color: 0x555044 }), -.7, .4, 0, g);
+  lantern.castShadow = false;
+  g.userData.lantern = lantern;
+  return g;
+}
+
+// Each berth runs a fixed schedule keyed off a shared clock, so the harbor is in the
+// same state for every visitor at the same moment, and picks up where it was on reload.
+// CYC divides a day (86400 s) evenly, which lets the time-lapse land back in sync.
+const V = (x, z) => new THREE.Vector3(x, 0, z);
+const ARR = 9, DOCK = 26, DEP = 9, AWAY = 4, CYC = ARR + DOCK + DEP + AWAY; // 48 s
+const WALK = .85; // units per second
+const berths = [
+  { P: V(-.95, 1.6), from: [V(-14, -1.2), V(-.95, -1.2)], to: [V(-.95, 7.5), V(-14, 10)], offset: 0,
+    boat: boat({ hull: 0xb8483a, cabin: 0xf3efe6 }), colors: [0xe0b64a, 0x7a4e8a], homes: [houses[0], houses[1]] },
+  { P: V(.95, 2.9), from: [V(14, .2), V(.95, .2)], to: [V(.95, 8.5), V(14, 11)], offset: CYC / 2,
+    boat: boat({ hull: 0x2f5a8a, cabin: 0xf6e7c8 }), colors: [0x3f8a6a, 0xd06b4a], homes: [houses[1], houses[0]] },
+];
+// seat on the deck, clear of the cabin (boat-local; local +x points along the dock when moored)
+const SEAT = new THREE.Vector3(.32, .2, 0);
+const SIT = .85, STAND_SECS = .35; // seated squash, and how long standing up / sitting down takes
+// seat → boat's rail → hop onto the dock → along the dock (own lane) → beach → through a house door.
+// The first two points ride on the boat, so they're re-projected through its bobbing transform
+// every frame (see `walker`); the rest are fixed in the world.
+function route(b, home, lane) {
+  const d = DECK + .03, beachZ = DOCK_Z0 - .6, side = Math.sign(b.P.x), z = b.P.z + SEAT.x;
+  const onBoat = [SEAT.clone(), new THREE.Vector3(SEAT.x, .21, side * .24)];
+  const pts = [
+    b.P.clone().add(new THREE.Vector3(0, .2, SEAT.x)),
+    new THREE.Vector3(b.P.x - side * .24, .21, z),
+    new THREE.Vector3(side * .42, d, z),
+    new THREE.Vector3(lane, d, z - .5),
+    new THREE.Vector3(lane, d, DOCK_Z0 + .15),
+    new THREE.Vector3(lane, landH(lane, beachZ) + .02, beachZ),
+    home.userData.step, home.userData.door, home.userData.inside,
+  ];
+  const lens = pts.slice(1).map((q, i) => q.distanceTo(pts[i]));
+  return { pts, lens, total: lens.reduce((x, y) => x + y), home, onBoat: [[0, onBoat[0]], [1, onBoat[1]]], hop: 1 };
+}
+const reversed = r => {
+  const n = r.pts.length - 1;
+  return { pts: [...r.pts].reverse(), lens: [...r.lens].reverse(), total: r.total, home: r.home,
+    onBoat: r.onBoat.map(([i, v]) => [n - i, v]), hop: n - 1 - r.hop };
+};
+for (const b of berths) {
+  // the seated figure stands in for whichever passenger is aboard, so it borrows their shirt and skin
+  b.skins = [pickSkin(), pickSkin()];
+  b.seated = person(b.colors[0], b.boat, b.skins[0]); b.seated.position.copy(SEAT); b.seated.scale.y = SIT;
+  // the arriving passenger walks home; a different one leaves another house to catch the boat
+  b.off = { p: person(b.colors[0], scene, b.skins[0]), r: route(b, b.homes[0], .18 * Math.sign(b.P.x)) };
+  b.on = { p: person(b.colors[1], scene, b.skins[1]), r: reversed(route(b, b.homes[1], -.18 * Math.sign(b.P.x))) };
+  b.off.start = 1;
+  b.on.start = DOCK - 1.5 - b.on.r.total / WALK;
+}
+const sailer = boat({ hull: 0xf2efe8, sail: true });
+
+const bez = (a, c, b, u, out) => out.set(0, 0, 0).addScaledVector(a, (1 - u) ** 2).addScaledVector(c, 2 * u * (1 - u)).addScaledVector(b, u * u);
+const tmp = new THREE.Vector3(), tmp2 = new THREE.Vector3();
+function alongRoute(r, dist, out) {
+  dist = Math.min(Math.max(dist, 0), r.total);
+  for (let i = 0; i < r.lens.length; i++) {
+    if (dist <= r.lens[i] || i === r.lens.length - 1) {
+      const k = Math.min(1, dist / r.lens[i]);
+      out.lerpVectors(r.pts[i], r.pts[i + 1], k);
+      if (i === r.hop) out.y += Math.sin(Math.PI * k) * .12; // little hop across the gap
+      return Math.atan2(r.pts[i + 1].x - r.pts[i].x, r.pts[i + 1].z - r.pts[i].z);
+    }
+    dist -= r.lens[i];
+  }
+}
+function placeBoat(g, pos, dir, t, roll = 1) {
+  g.position.set(pos.x, waveH(pos.x, pos.z, t) * .9, pos.z);
+  if (dir) g.rotation.y = Math.atan2(-dir.z, dir.x);
+  g.rotation.x = Math.sin(t * 1.4 + pos.x) * .04 * roll;
+  g.rotation.z = Math.cos(t * 1.1 + pos.z) * .03 * roll;
+}
+// a = activity clock (speeds up during the time-lapse), t = real time (waves, gait)
+function walker(w, boat, d, t) {
+  const dist = (d - w.start) * WALK;
+  w.p.visible = dist > 0 && dist < w.r.total;
+  if (!w.p.visible) return;
+  for (const [i, local] of w.r.onBoat) w.r.pts[i].copy(local).applyMatrix4(boat.matrixWorld);
+  w.p.rotation.y = alongRoute(w.r, dist, tmp);
+  w.p.position.copy(tmp);
+  // ease between seated and standing height at the boat end of the walk
+  const fromSeat = (w.r.onBoat[0][0] === 0 ? dist : w.r.total - dist) / WALK;
+  const k = Math.min(1, fromSeat / STAND_SECS);
+  const e = k * k * (3 - 2 * k);
+  w.p.scale.y = SIT + (1 - SIT) * e;
+  walkPose(w.p, t * 9, e); // no stride bob until they're up
+  // open the door for anyone within a step of it
+  if (tmp.distanceTo(w.r.home.userData.door) < .55) w.r.home.userData.want = 1;
+}
+function updateBerth(b, a, t) {
+  const L = ((a + b.offset) % CYC + CYC) % CYC, g = b.boat;
+  g.visible = L < ARR + DOCK + DEP;
+  b.off.p.visible = b.on.p.visible = false;
+  let seated = true, who = 0; // 0 = arriving passenger, 1 = departing one
+  if (L < ARR) {
+    const u = 1 - (1 - L / ARR) ** 2.2;
+    bez(b.from[0], b.from[1], b.P, u, tmp);
+    bez(b.from[0], b.from[1], b.P, Math.min(1, u + .01), tmp2);
+    placeBoat(g, tmp, tmp2.sub(tmp), t);
+  } else if (L < ARR + DOCK) {
+    placeBoat(g, b.P, V(0, 1), t, .5);
+    g.updateMatrixWorld();
+    const d = L - ARR;
+    walker(b.off, g, d, t); walker(b.on, g, d, t);
+    seated = d < b.off.start || d >= DOCK - 1.5;
+    if (d >= DOCK - 1.5) who = 1;
+  } else if (L < ARR + DOCK + DEP) {
+    const u = ((L - ARR - DOCK) / DEP) ** 2.2;
+    bez(b.P, b.to[0], b.to[1], u, tmp);
+    bez(b.P, b.to[0], b.to[1], Math.min(1, u + .01), tmp2);
+    placeBoat(g, tmp, tmp2.sub(tmp), t);
+    who = 1;
+  }
+  b.seated.visible = seated;
+  b.seated.children[0].material.color.setHex(b.colors[who]);
+  b.seated.children[1].material = b.skins[who];
+}
+
+// gulls
+const gulls = [0, 1, 2].map(i => {
+  const g = new THREE.Group(); scene.add(g);
+  const wingGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, -.05), new THREE.Vector3(0, 0, .05), new THREE.Vector3(.28, 0, 0)]);
+  const m = new THREE.MeshBasicMaterial({ color: 0xf4f4f0, side: THREE.DoubleSide });
+  const l = new THREE.Mesh(wingGeo, m), r = new THREE.Mesh(wingGeo, m); r.scale.x = -1;
+  g.add(l, r); g.userData = { l, r, phase: i * 2.2, rad: 2.4 + i * .9, h: 4 + i * .6 };
+  return g;
+});
+
+// ---------- time of day ----------
+const K = [
+  { h: 0,    top: '#070b1f', hor: '#1c2347', water: '#13213d', sun: '#8ea4ff', si: .35, hemiS: '#2c3766', hemiG: '#111622', hi: .45, night: 1 },
+  { h: 5,    top: '#151a3d', hor: '#3a3a66', water: '#1b2a4a', sun: '#8ea4ff', si: .35, hemiS: '#3a4270', hemiG: '#161a26', hi: .5, night: 1 },
+  { h: 6.3,  top: '#4a5f9a', hor: '#f2a283', water: '#4f6a8f', sun: '#ffb38a', si: 1.4, hemiS: '#9aa6d0', hemiG: '#5a4a44', hi: .8, night: .35 },
+  { h: 8,    top: '#7db5e2', hor: '#f4dcc0', water: '#3f86b0', sun: '#ffe4bd', si: 2.4, hemiS: '#cfe3f5', hemiG: '#5d6b45', hi: 1, night: 0 },
+  { h: 12.5, top: '#5ea6e0', hor: '#cfe7f6', water: '#3a8fbf', sun: '#fff7ea', si: 2.9, hemiS: '#e3f0fb', hemiG: '#5d6b45', hi: 1.1, night: 0 },
+  { h: 17,   top: '#6fa3d6', hor: '#f6d7a6', water: '#3c7fa8', sun: '#ffd49a', si: 2.5, hemiS: '#e2dcc8', hemiG: '#5d5a40', hi: 1, night: 0 },
+  { h: 19,   top: '#3e4a8a', hor: '#f08a5d', water: '#3d5a7f', sun: '#ff8a52', si: 1.4, hemiS: '#a08aa8', hemiG: '#4a3a3a', hi: .75, night: .4 },
+  { h: 20.5, top: '#141a3c', hor: '#3b3560', water: '#1c2a4a', sun: '#8ea4ff', si: .4, hemiS: '#3a4270', hemiG: '#161a26', hi: .5, night: 1 },
+  { h: 24,   top: '#070b1f', hor: '#1c2347', water: '#13213d', sun: '#8ea4ff', si: .35, hemiS: '#2c3766', hemiG: '#111622', hi: .45, night: 1 },
+];
+const cA = new THREE.Color(), cB = new THREE.Color();
+const tmpL = new THREE.Vector3(), tmpS = new THREE.Vector3();
+const mixHex = (a, b, t, out) => out.set(cA.set(a).lerp(cB.set(b), t));
+const sky = { top: new THREE.Color(), hor: new THREE.Color() };
+const winOff = new THREE.Color(0x3b3b3b), winOn = new THREE.Color(0xffcf7a), bulbOff = new THREE.Color(0x555044), bulbOn = new THREE.Color(0xfff0c0);
+function phaseName(h) {
+  return h < 5 ? 'night' : h < 7 ? 'dawn' : h < 11 ? 'morning' : h < 14 ? 'midday' : h < 17.3 ? 'afternoon' : h < 18.8 ? 'golden hour' : h < 20.8 ? 'dusk' : 'night';
+}
+function applyTime(h) {
+  let i = 0; while (K[i + 1].h <= h) i++;
+  const a = K[i], b = K[i + 1], t = smooth(0, 1, (h - a.h) / (b.h - a.h));
+  mixHex(a.top, b.top, t, sky.top); mixHex(a.hor, b.hor, t, sky.hor);
+  host.style.background = `linear-gradient(to bottom, #${sky.top.getHexString()} 0%, #${sky.hor.getHexString()} 42%, #${sky.hor.getHexString()} 100%)`;
+  scene.fog.color.copy(sky.hor);
+  mixHex(a.water, b.water, t, waterMat.color);
+  mixHex(a.sun, b.sun, t, sunLight.color);
+  sunLight.intensity = a.si + (b.si - a.si) * t;
+  mixHex(a.hemiS, b.hemiS, t, hemi.color); mixHex(a.hemiG, b.hemiG, t, hemi.groundColor);
+  hemi.intensity = a.hi + (b.hi - a.hi) * t;
+  const night = a.night + (b.night - a.night) * t;
+
+  // sun and moon travel a shallow arc across the visible sky
+  // sun: 6am → 7pm sweeps 0 → π; moon: 7pm → 6am sweeps π → 2π. Periodic, so no jump at midnight.
+  const ang = h >= 6 && h <= 19 ? (h - 6) / 13 * Math.PI : Math.PI * (1 + ((h - 19 + 24) % 24) / 11);
+  const el = Math.sin(ang);
+  sunDisc.position.set(Math.cos(ang) * 7, 1.5 + el * 9, -34);
+  moonDisc.position.set(-Math.cos(ang) * 7, 1.5 - el * 9, -34);
+  sunDisc.visible = el > -.15; moonDisc.visible = el < .15;
+  sunDisc.material.color.copy(sunLight.color).lerp(cA.set(0xffffff), .35);
+  // light from the front so the scene isn't backlit; the disc is just for show
+  // Around sunrise/sunset the key light hands over from sun to moon. Blend the two light
+  // positions across the horizon instead of switching, so shadows sweep rather than snap.
+  const lightPos = (d, out) => out.set(d.position.x * 1.2, Math.max(3, d.position.y + 4), 10);
+  lightPos(moonDisc, tmpL).lerp(lightPos(sunDisc, tmpS), smooth(-.3, .3, el));
+  sunLight.position.copy(tmpL);
+
+  starMat.opacity = night * .9;
+  windowMat.color.copy(winOff).lerp(winOn, night);
+  bulbMat.color.copy(bulbOff).lerp(bulbOn, night);
+  for (const b of [...berths.map(b => b.boat), sailer]) b.userData.lantern.material.color.copy(bulbOff).lerp(bulbOn, night);
+  lampLight.intensity = night * 2.5;
+  for (const g of gulls) g.visible = night < .6;
+  return night;
+}
+
+// ---------- clock + time-lapse ----------
+const params = new URLSearchParams(location.search);
+const fixedHour = params.has('hour') ? +params.get('hour') % 24 : null;
+const realHour = () => { const d = new Date(); return fixedHour ?? d.getHours() + d.getMinutes() / 60 + d.getSeconds() / 3600; };
+// The time-lapse plays one day in LAPSE_SECS. Both clocks ease in and out (smootherstep),
+// so there are no jumps: the sky ends exactly 24h ahead (same hour it started), and the
+// activity clock ends a whole number of boat cycles ahead, back in sync with the schedule.
+const LAPSE_SECS = 30, ACT_EXTRA = CYC * 4; // boats/people peak at ~13x speed
+const ease = x => x <= 0 ? 0 : x >= 1 ? 1 : x * x * x * (x * (x * 6 - 15) + 10);
+let lapseStart = null, actOffset = 0;
+const lapseBtn = document.getElementById('lapse');
+lapseBtn.addEventListener('click', () => {
+  if (lapseStart !== null) return;
+  lapseStart = performance.now(); lapseBtn.textContent = 'playing…';
+});
+function clocks() {
+  let k = 0;
+  if (lapseStart !== null) {
+    k = (performance.now() - lapseStart) / 1000 / LAPSE_SECS;
+    if (k >= 1) { lapseStart = null; actOffset += ACT_EXTRA; k = 0; lapseBtn.textContent = 'time-lapse ↻'; }
+  }
+  return {
+    hour: (realHour() + 24 * ease(k)) % 24,
+    act: Date.now() / 1000 % 86400 + actOffset + ACT_EXTRA * ease(k),
+  };
+}
+const when = document.getElementById('when');
+function label(h) {
+  const hh = Math.floor(h), mm = Math.floor((h - hh) * 60);
+  const t = new Date(2000, 0, 1, hh, mm).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }).toLowerCase();
+  when.textContent = `the harbor, ${t} · ${phaseName(h)}`;
+}
+
+// ---------- loop ----------
+const wp = waterGeo.attributes.position;
+function frame() {
+  const t = Date.now() / 1000 % 86400;
+  const { hour: h, act: a } = clocks();
+  applyTime(h); label(h);
+
+  for (let i = 0; i < wp.count; i++) wp.setY(i, waveH(waterBase[i * 3], waterBase[i * 3 + 2], t));
+  wp.needsUpdate = true;
+
+  for (const hs of houses) hs.userData.want = 0;
+  for (const b of berths) updateBerth(b, a, t);
+  for (const hs of houses) {
+    const u = hs.userData;
+    u.open += (u.want - u.open) * .18;
+    u.hinge.rotation.y = u.open * 1.7;
+  }
+
+  // a sailboat drifting across the foreground every so often
+  const sx = -16 + (a % 96) / 96 * 44;
+  placeBoat(sailer, V(sx, 6.4), V(1, 0), t);
+  sailer.userData.sail.rotation.y = Math.sin(t * .4) * .1;
+
+  for (const v of villagers) {
+    const s = Math.sin(a * v.speed + v.phase), ds = Math.cos(a * v.speed + v.phase);
+    const x = s * v.span * .5, z = v.z;
+    v.p.position.set(x, landH(x, z), z);
+    v.p.rotation.y = ds > 0 ? Math.PI / 2 : -Math.PI / 2;
+    walkPose(v.p, t * 8 + v.phase);
+  }
+
+  rod.rotation.z = Math.sin(t * .8) * .05;
+  rod.updateMatrixWorld();
+  const tip = new THREE.Vector3(0, .55, 0).applyMatrix4(rod.matrixWorld);
+  const lp = lineGeo.attributes.position;
+  lp.setXYZ(0, tip.x, tip.y, tip.z); lp.setXYZ(1, tip.x + .05, waveH(tip.x, tip.z + .6, t), tip.z + .6); lp.needsUpdate = true;
+
+  for (const g of gulls) {
+    const { l, r, phase, rad, h: gh } = g.userData, ga = a * .25 + phase;
+    g.position.set(Math.cos(ga) * rad, gh + Math.sin(t * .7 + phase) * .3, -1.5 + Math.sin(ga) * rad * .6);
+    g.rotation.y = -ga;
+    const flap = Math.sin(t * 7 + phase) * .5;
+    l.rotation.z = flap; r.rotation.z = -flap;
+  }
+  for (const tr of trees) tr.rotation.z = Math.sin(t * .8 + tr.userData.sway) * .025;
+
+  camera.position.set(camBase.x + Math.sin(t * .05) * .8, camBase.y + Math.sin(t * .07) * .2, camBase.z);
+  camera.lookAt(camLook);
+  renderer.render(scene, camera);
+}
+resize();
+if (reduce) { frame(); setInterval(frame, 1000); }
+else renderer.setAnimationLoop(frame);
+</script>
+</body>
+</html>
