@@ -32,8 +32,8 @@
 
   /* the harbor pane */
   .harbor {
-    flex: 0 0 280px; position: sticky; top: 24px; margin: 24px 0;
-    height: calc(100vh - 48px); max-height: 760px; min-height: 420px;
+    flex: 0 0 clamp(320px, 40vw, 600px); position: sticky; top: 24px; margin: 24px 0;
+    height: clamp(360px, 64vh, 580px);
     display: flex; flex-direction: column;
   }
   .scene { flex: 1; position: relative; overflow: hidden; border-radius: 3px; background: #9cc6e4; transition: background 1s; }
@@ -114,7 +114,12 @@ const camLook = new THREE.Vector3(0, 2.1, -1.2);
 function resize() {
   const w = host.clientWidth, h = host.clientHeight;
   renderer.setSize(w, h, false);
-  camera.aspect = w / h; camera.updateProjectionMatrix();
+  camera.aspect = w / h;
+  // tall pane: look up toward the sky; squarer pane: aim lower and widen a touch so the dock and boats fit
+  const k = smooth(.5, 1.1, camera.aspect);
+  camLook.y = 2.1 - .5 * k;
+  camera.fov = 34 + 2 * k;
+  camera.updateProjectionMatrix();
 }
 new ResizeObserver(resize).observe(host);
 
